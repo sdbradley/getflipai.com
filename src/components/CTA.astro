@@ -42,15 +42,11 @@
       form?.addEventListener('submit', async (e) => {
         e.preventDefault();
         const formData = new FormData(form);
-        const email = formData.get('email_address');
 
         try {
           const response = await fetch('https://app.kit.com/forms/9022094/subscriptions', {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ email_address: email }),
+            body: new URLSearchParams(formData),
           });
 
           if (response.ok) {
