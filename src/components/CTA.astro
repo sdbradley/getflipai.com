@@ -51,9 +51,9 @@
 
           if (response.ok) {
             form.reset();
-            message.textContent = "You're in! Check your email to confirm.";
-            message.classList.remove('text-slate-400');
-            message.classList.add('text-accent-300');
+            message.textContent = "You're in! We'll be in touch soon.";
+            message.classList.remove('text-slate-400', 'text-sm');
+            message.classList.add('text-green-400', 'text-lg', 'font-semibold');
           } else {
             throw new Error('Failed to subscribe');
           }
