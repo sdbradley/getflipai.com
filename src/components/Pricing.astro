@@ -1,0 +1,111 @@
+---
+const plans = [
+  {
+    name: "Starter",
+    price: "$29",
+    period: "/month",
+    description: "Perfect for getting started with deal analysis",
+    features: [
+      "5 property analyses per month",
+      "AI vision analysis",
+      "Comparable sales lookup",
+      "Basic financial modeling",
+      "Email support"
+    ],
+    cta: "Start Free Trial",
+    highlighted: false
+  },
+  {
+    name: "Pro",
+    price: "$79",
+    period: "/month",
+    description: "For active investors analyzing multiple deals",
+    features: [
+      "Unlimited property analyses",
+      "Advanced AI vision analysis",
+      "Unlimited comparable sales",
+      "Full financial modeling",
+      "5 exit strategy scenarios",
+      "Cashflow projections",
+      "Priority support"
+    ],
+    cta: "Start Free Trial",
+    highlighted: true
+  },
+  {
+    name: "Team",
+    price: "$199",
+    period: "/month",
+    description: "For teams and high-volume investors",
+    features: [
+      "Everything in Pro",
+      "5 team members",
+      "Shared property database",
+      "Deal pipeline tracking",
+      "API access",
+      "Dedicated support",
+      "Custom integrations"
+    ],
+    cta: "Contact Sales",
+    highlighted: false
+  }
+];
+---
+
+<section id="pricing" class="py-16 md:py-24 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="section-heading">Simple, Transparent Pricing</h2>
+      <p class="section-subheading">
+        Start free, upgrade when you're ready. No hidden fees, cancel anytime.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      {plans.map((plan) => (
+        <div class={`relative p-8 rounded-2xl ${plan.highlighted ? 'bg-primary text-white ring-4 ring-accent' : 'bg-white border border-slate-200'}`}>
+          {plan.highlighted && (
+            <div class="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent text-white text-sm font-semibold rounded-full">
+              Most Popular
+            </div>
+          )}
+
+          <div class="text-center mb-8">
+            <h3 class={`text-xl font-semibold mb-2 ${plan.highlighted ? 'text-white' : 'text-slate-900'}`}>{plan.name}</h3>
+            <div class="flex items-baseline justify-center gap-1">
+              <span class={`text-4xl font-bold ${plan.highlighted ? 'text-white' : 'text-slate-900'}`}>{plan.price}</span>
+              <span class={plan.highlighted ? 'text-slate-300' : 'text-slate-500'}>{plan.period}</span>
+            </div>
+            <p class={`mt-2 text-sm ${plan.highlighted ? 'text-slate-300' : 'text-slate-600'}`}>{plan.description}</p>
+          </div>
+
+          <ul class="space-y-3 mb-8">
+            {plan.features.map((feature) => (
+              <li class="flex items-start gap-3">
+                <svg class={`w-5 h-5 flex-shrink-0 ${plan.highlighted ? 'text-accent-300' : 'text-accent'}`} fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span class={plan.highlighted ? 'text-slate-200' : 'text-slate-600'}>{feature}</span>
+              </li>
+            ))}
+          </ul>
+
+          <a
+            href="#cta"
+            class={`block w-full text-center py-3 px-6 rounded-lg font-semibold transition-colors ${
+              plan.highlighted
+                ? 'bg-accent text-white hover:bg-accent-500'
+                : 'bg-primary text-white hover:bg-primary-600'
+            }`}
+          >
+            {plan.cta}
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-center text-sm text-slate-500 mt-8">
+      All plans include a 14-day free trial. No credit card required to start.
+    </p>
+  </div>
+</section>
