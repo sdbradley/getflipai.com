@@ -4,6 +4,7 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://getflipai.com',
+  site: 'https://sdbradley.github.io',
+  base: '/getflipai.com',
   integrations: [tailwind()],
 });
