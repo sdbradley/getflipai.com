@@ -1,4 +1,5 @@
 ---
+const base = import.meta.env.BASE_URL;
 ---
 
 <section class="pt-24 pb-16 md:pt-32 md:pb-24 bg-gradient-to-b from-white to-slate-50">
@@ -71,19 +72,19 @@
         <!-- Supporting screenshots (behind) -->
         <div class="hidden md:flex justify-center gap-6 mb-[-60px] relative z-0">
           <div class="w-80 rounded-lg overflow-hidden shadow-xl border border-slate-200 transform -rotate-3 -translate-y-4">
-            <img src="/screenshots/property-info.png" alt="Property Info" class="w-full" />
+            <img src={`${base}screenshots/property-info.png`} alt="Property Info" class="w-full" />
           </div>
           <div class="w-80 rounded-lg overflow-hidden shadow-xl border border-slate-200 transform -translate-y-8">
-            <img src="/screenshots/comparables.png" alt="Comparable Sales" class="w-full" />
+            <img src={`${base}screenshots/comparables.png`} alt="Comparable Sales" class="w-full" />
           </div>
           <div class="w-80 rounded-lg overflow-hidden shadow-xl border border-slate-200 transform rotate-3 -translate-y-4">
-            <img src="/screenshots/photo-analysis.png" alt="Photo Analysis" class="w-full" />
+            <img src={`${base}screenshots/photo-analysis.png`} alt="Photo Analysis" class="w-full" />
           </div>
         </div>
 
         <!-- Main screenshot (front) -->
         <div class="relative z-10 rounded-xl overflow-hidden shadow-2xl border border-slate-200 bg-white">
-          <img src="/screenshots/investment-analysis.png" alt="Investment Analysis Dashboard" class="w-full" />
+          <img src={`${base}screenshots/investment-analysis.png`} alt="Investment Analysis Dashboard" class="w-full" />
         </div>
       </div>
     </div>
