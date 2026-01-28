@@ -2,8 +2,8 @@
 const plans = [
   {
     name: "Starter",
-    price: "$29",
-    period: "/month",
+    monthlyPrice: "$29",
+    annualPrice: "$249",
     description: "Perfect for getting started with deal analysis",
     features: [
       "5 property analyses per month",
@@ -16,9 +16,9 @@ const plans = [
     highlighted: false
   },
   {
-    name: "Pro",
-    price: "$79",
-    period: "/month",
+    name: "Active Flipper",
+    monthlyPrice: "$79",
+    annualPrice: "$649",
     description: "For active investors analyzing multiple deals",
     features: [
       "Unlimited property analyses",
@@ -33,12 +33,12 @@ const plans = [
     highlighted: true
   },
   {
-    name: "Team",
-    price: "$199",
-    period: "/month",
+    name: "Flip Team",
+    monthlyPrice: "$199",
+    annualPrice: "$1,649",
     description: "For teams and high-volume investors",
     features: [
-      "Everything in Pro",
+      "Everything in Active Flipper",
       "5 team members",
       "Shared property database",
       "Deal pipeline tracking",
@@ -59,6 +59,24 @@ const plans = [
       <p class="section-subheading">
         Start free, upgrade when you're ready. No hidden fees, cancel anytime.
       </p>
+
+      <!-- Billing Toggle -->
+      <div class="mt-8 inline-flex items-center bg-slate-200 rounded-full p-1">
+        <button
+          id="monthly-toggle"
+          class="px-6 py-2 rounded-full text-sm font-semibold transition-colors bg-white text-slate-900 shadow-sm"
+          data-billing="monthly"
+        >
+          Monthly
+        </button>
+        <button
+          id="annual-toggle"
+          class="px-6 py-2 rounded-full text-sm font-semibold transition-colors text-slate-600 hover:text-slate-900"
+          data-billing="annual"
+        >
+          Annual <span class="text-accent font-bold">Save ~30%</span>
+        </button>
+      </div>
     </div>
 
     <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -73,8 +91,14 @@ const plans = [
           <div class="text-center mb-8">
             <h3 class={`text-xl font-semibold mb-2 ${plan.highlighted ? 'text-white' : 'text-slate-900'}`}>{plan.name}</h3>
             <div class="flex items-baseline justify-center gap-1">
-              <span class={`text-4xl font-bold ${plan.highlighted ? 'text-white' : 'text-slate-900'}`}>{plan.price}</span>
-              <span class={plan.highlighted ? 'text-slate-300' : 'text-slate-500'}>{plan.period}</span>
+              <span class={`text-4xl font-bold ${plan.highlighted ? 'text-white' : 'text-slate-900'}`}>
+                <span class="price-monthly">{plan.monthlyPrice}</span>
+                <span class="price-annual hidden">{plan.annualPrice}</span>
+              </span>
+              <span class={plan.highlighted ? 'text-slate-300' : 'text-slate-500'}>
+                <span class="period-monthly">/month</span>
+                <span class="period-annual hidden">/year</span>
+              </span>
             </div>
             <p class={`mt-2 text-sm ${plan.highlighted ? 'text-slate-300' : 'text-slate-600'}`}>{plan.description}</p>
           </div>
@@ -109,3 +133,44 @@ const plans = [
     </p>
   </div>
 </section>
+
+<script>
+  const monthlyToggle = document.getElementById('monthly-toggle');
+  const annualToggle = document.getElementById('annual-toggle');
+
+  const monthlyPrices = document.querySelectorAll('.price-monthly');
+  const annualPrices = document.querySelectorAll('.price-annual');
+  const monthlyPeriods = document.querySelectorAll('.period-monthly');
+  const annualPeriods = document.querySelectorAll('.period-annual');
+
+  function setMonthly() {
+    // Update toggle styles
+    monthlyToggle?.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+    monthlyToggle?.classList.remove('text-slate-600');
+    annualToggle?.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+    annualToggle?.classList.add('text-slate-600');
+
+    // Show monthly prices, hide annual
+    monthlyPrices.forEach(el => el.classList.remove('hidden'));
+    annualPrices.forEach(el => el.classList.add('hidden'));
+    monthlyPeriods.forEach(el => el.classList.remove('hidden'));
+    annualPeriods.forEach(el => el.classList.add('hidden'));
+  }
+
+  function setAnnual() {
+    // Update toggle styles
+    annualToggle?.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+    annualToggle?.classList.remove('text-slate-600');
+    monthlyToggle?.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+    monthlyToggle?.classList.add('text-slate-600');
+
+    // Show annual prices, hide monthly
+    annualPrices.forEach(el => el.classList.remove('hidden'));
+    monthlyPrices.forEach(el => el.classList.add('hidden'));
+    annualPeriods.forEach(el => el.classList.remove('hidden'));
+    monthlyPeriods.forEach(el => el.classList.add('hidden'));
+  }
+
+  monthlyToggle?.addEventListener('click', setMonthly);
+  annualToggle?.addEventListener('click', setAnnual);
+</script>
