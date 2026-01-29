@@ -13,6 +13,7 @@ const plans = [
       "Email support"
     ],
     cta: "Start Free Trial",
+    href: "https://app.getflipai.com/register?plan=starter",
     highlighted: false
   },
   {
@@ -30,6 +31,7 @@ const plans = [
       "Priority support"
     ],
     cta: "Start Free Trial",
+    href: "https://app.getflipai.com/register?plan=active",
     highlighted: true
   },
   {
@@ -47,6 +49,7 @@ const plans = [
       "Custom integrations"
     ],
     cta: "Contact Sales",
+    href: "mailto:sales@getflipai.com",
     highlighted: false
   }
 ];
@@ -115,7 +118,7 @@ const plans = [
           </ul>
 
           <a
-            href="#cta"
+            href={plan.href}
             class={`block w-full text-center py-3 px-6 rounded-lg font-semibold transition-colors ${
               plan.highlighted
                 ? 'bg-accent text-white hover:bg-accent-500'
@@ -129,7 +132,7 @@ const plans = [
     </div>
 
     <p class="text-center text-sm text-slate-500 mt-8">
-      All plans include a 14-day free trial. No credit card required to start.
+      All plans include a 7-day free trial. No credit card required to start.
     </p>
   </div>
 </section>

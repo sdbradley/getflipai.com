@@ -20,6 +20,15 @@ The marketing site stays fully static. We're simply updating button links to poi
 
 **App Registration URL:** `https://app.getflipai.com/register`
 
+**Query Parameters for Plan Tracking:**
+| Source | URL |
+|--------|-----|
+| Starter plan CTA | `https://app.getflipai.com/register?plan=starter` |
+| Active Flipper plan CTA | `https://app.getflipai.com/register?plan=active` |
+| Hero CTA | `https://app.getflipai.com/register` (no plan param) |
+| Nav CTA | `https://app.getflipai.com/register` (no plan param) |
+| Flip Team CTA | `mailto:sales@getflipai.com` |
+
 ---
 
 ## Implementation Tasks
@@ -158,13 +167,13 @@ Files to check:
 
 ## Testing Checklist
 
-- [ ] Pricing "Start Free Trial" buttons link to `app.getflipai.com/register`
-- [ ] Pricing "Contact Sales" button has appropriate action (mailto or scroll)
-- [ ] Hero CTA links to registration
-- [ ] Nav "Get Started" links to registration
+- [x] Pricing "Start Free Trial" buttons link to `app.getflipai.com/register?plan=starter` and `?plan=active`
+- [x] Pricing "Contact Sales" button has appropriate action (mailto:sales@getflipai.com)
+- [x] Hero CTA links to registration
+- [x] Nav "Start Free Trial" links to registration
 - [ ] Kit email form still works
 - [ ] All links open in same tab (no target="_blank" needed for same-domain feel)
-- [ ] Trial length messaging is consistent (7 days)
+- [x] Trial length messaging is consistent (7 days)
 
 ---
 
