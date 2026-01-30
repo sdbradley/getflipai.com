@@ -48,7 +48,10 @@ const plan = {
     <div class="max-w-md mx-auto">
       <div class="relative p-8 rounded-2xl bg-white border border-slate-200 shadow-lg">
         <div class="text-center mb-8">
-          <h3 class="text-xl font-semibold mb-2 text-slate-900">{plan.name}</h3>
+          <div class="flex items-center justify-center gap-2 mb-2">
+            <img src="https://s3.us-east-1.amazonaws.com/getflipai.com/flipai-logo-blue-flat-white-bg.png" alt="FlipAI" class="w-8 h-8 rounded-lg shadow" />
+            <h3 class="text-xl font-semibold text-slate-900">{plan.name}</h3>
+          </div>
           <div class="flex items-baseline justify-center gap-1">
             <span class="text-4xl font-bold text-slate-900">
               <span class="price-monthly">{plan.monthlyPrice}</span>
