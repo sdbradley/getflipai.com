@@ -35,8 +35,8 @@ const { title, description = "AI-powered property analysis, rehab estimates, and
     <link rel="icon" type="image/png" href="/favicon.png" />
 
     <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0T32NEDFKB"></script>
-    <script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-0T32NEDFKB"></script>
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -56,19 +56,19 @@ const { title, description = "AI-powered property analysis, rehab estimates, and
   }
 </style>
 
-<script>
+<script is:inline>
   // GA4 Event Tracking via data attributes
-  document.addEventListener('click', (e) => {
-    const target = e.target as HTMLElement;
-    const trackable = target.closest('[data-ga-event]') as HTMLElement;
+  document.addEventListener('click', function(e) {
+    var target = e.target;
+    var trackable = target.closest('[data-ga-event]');
     if (trackable && typeof gtag === 'function') {
-      const eventName = trackable.dataset.gaEvent;
-      const eventParams: Record<string, string> = {};
+      var eventName = trackable.dataset.gaEvent;
+      var eventParams = {};
 
       // Collect additional data-ga-* attributes as event parameters
-      Object.keys(trackable.dataset).forEach(key => {
-        if (key.startsWith('ga') && key !== 'gaEvent') {
-          const paramName = key.replace('ga', '').toLowerCase();
+      Object.keys(trackable.dataset).forEach(function(key) {
+        if (key.indexOf('ga') === 0 && key !== 'gaEvent') {
+          var paramName = key.replace('ga', '').toLowerCase();
           eventParams[paramName] = trackable.dataset[key] || '';
         }
       });
