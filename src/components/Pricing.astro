@@ -32,6 +32,8 @@ const plan = {
           id="monthly-toggle"
           class="px-6 py-2 rounded-full text-sm font-semibold transition-colors bg-white text-slate-900 shadow-sm"
           data-billing="monthly"
+          data-ga-event="toggle_billing_period"
+          data-ga-period="monthly"
         >
           Monthly
         </button>
@@ -39,6 +41,8 @@ const plan = {
           id="annual-toggle"
           class="px-6 py-2 rounded-full text-sm font-semibold transition-colors text-slate-600 hover:text-slate-900"
           data-billing="annual"
+          data-ga-event="toggle_billing_period"
+          data-ga-period="annual"
         >
           Annual <span class="text-accent font-bold">Save ~30%</span>
         </button>
@@ -81,6 +85,8 @@ const plan = {
           target="_blank"
           rel="noopener noreferrer"
           class="block w-full text-center py-3 px-6 rounded-lg font-semibold transition-colors bg-accent text-white hover:bg-accent-500"
+          data-ga-event="click_cta_start_trial"
+          data-ga-location="pricing"
         >
           {plan.cta}
         </a>
